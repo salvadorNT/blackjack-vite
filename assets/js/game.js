@@ -9,6 +9,7 @@ let deck = [];
 let card_types = ['C', 'D', 'H', 'S'];
 let aces = ['A', 'J', 'Q', 'K']
 
+// Creates new deck
 const createDeck = () => {
     for (let index = 2; index <= 10; index++) {
         for (const card_type of card_types) {
@@ -20,4 +21,9 @@ const createDeck = () => {
             deck.push(ace + card_type);
         }
     }
+    return _.shuffle(deck);
 }
+
+deck = createDeck();
+
+console.log(deck);
