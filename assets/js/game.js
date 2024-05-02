@@ -7,8 +7,13 @@
 */
 let deck = [];
 let player_hand = [];
+let player_score = 0, pc_score = 0;
 let card_types = ['C', 'D', 'H', 'S'];
 let aces = ['A', 'J', 'Q', 'K']
+
+// HTML references
+const btnTakeCard = document.querySelector('#btnTakeCard');
+const playerScoreboard = document.querySelector('#player_scoreboard');
 
 // Creates new deck
 const createDeck = () => {
@@ -43,6 +48,13 @@ const cardValue = (card) => {
         : card_value * 1
 }
 
+// Events
+
+btnTakeCard.addEventListener('click', () => {
+    const card = takeCard();
+    player_score += cardValue(card);
+    playerScoreboard.textContent = player_score;
+
+});
+
 createDeck();
-takeCard();
-console.log(deck);
