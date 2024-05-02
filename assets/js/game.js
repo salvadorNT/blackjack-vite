@@ -25,12 +25,22 @@ const createDeck = () => {
     deck = _.shuffle(deck);
 }
 
+// Take card from the deck
 const takeCard = () => {
     if (deck.length === 0) {
         throw 'There are no more cards.';
     }
     let random_position = Math.floor(Math.random() * deck.length);
-    player_hand.push(deck.splice(random_position, 1)[0]);
+    return deck.splice(random_position, 1)[0];
+}
+
+
+// Retun numeric value of the card given
+const cardValue = (card) => {
+    let card_value = card.substring(0, card.length - 1)
+    return (isNaN(card_value)) ?
+        (card_value === 'A') ? 11 : 10
+        : card_value * 1
 }
 
 createDeck();
