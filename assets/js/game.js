@@ -6,6 +6,7 @@
     2S-10S Spades
 */
 let deck = [];
+let player_hand = [];
 let card_types = ['C', 'D', 'H', 'S'];
 let aces = ['A', 'J', 'Q', 'K']
 
@@ -21,9 +22,17 @@ const createDeck = () => {
             deck.push(ace + card_type);
         }
     }
-    return _.shuffle(deck);
+    deck = _.shuffle(deck);
 }
 
-deck = createDeck();
+const takeCard = () => {
+    if (deck.length === 0) {
+        throw 'There are no more cards.';
+    }
+    let random_position = Math.floor(Math.random() * deck.length);
+    player_hand.push(deck.splice(random_position, 1)[0]);
+}
 
+createDeck();
+takeCard();
 console.log(deck);
