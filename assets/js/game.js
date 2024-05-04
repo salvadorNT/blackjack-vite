@@ -10,8 +10,8 @@
 */
     let deck = [];
     let player_score = 0, pc_score = 0;
-    let card_types = ['C', 'D', 'H', 'S'];
-    let aces = ['A', 'J', 'Q', 'K']
+    let card_types = ['C', 'D', 'H', 'S'],
+              aces = ['A', 'J', 'Q', 'K'];
 
     // HTML references
     const btn_take_card = document.querySelector('#btnTakeCard');
@@ -21,6 +21,11 @@
     const computerScoreboard = document.querySelector('#computer_scoreboard');
     const playerCards = document.querySelector('#player1-cards');
     const computerCards = document.querySelector('#computer-cards');
+
+    // Initialize game
+    const initGame = () => {
+        createDeck();
+    }
 
     // Creates new deck
     const createDeck = () => {
@@ -132,9 +137,9 @@
         playerCards.innerHTML = '';
         computerCards.innerHTML = '';
 
-        createDeck();
+        initGame();
     });
 
-    createDeck();
+    initGame();
 
 })();
