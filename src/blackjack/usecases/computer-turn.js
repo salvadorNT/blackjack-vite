@@ -28,6 +28,6 @@ export const computerTurn = (min_score, deck) => {
             : (pc_score > 21) ? alert('Jugador 1 gana.')
                 : (min_score > 21) ? alert('La computadora ganó.')
                     : alert('La computadora gana.')
-    }, 100);
+    }, 550);
 
 }
