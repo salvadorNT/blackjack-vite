@@ -8,6 +8,5 @@ export const takeCard = (deck) => {
     throw 'There are no more cards.';
   }
   let random_position = Math.floor(Math.random() * deck.length);
-  console.log(deck);
   return deck.splice(random_position, 1)[0];
 }
